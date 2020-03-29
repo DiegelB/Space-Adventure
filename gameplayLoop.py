@@ -1,6 +1,7 @@
 import random 
 from os import system
 from enemyClass import EnemyShip
+from distressBeacon import distressMain
 
 EnemyShip = EnemyShip()
 
@@ -10,14 +11,14 @@ def mainLoop(PlayerShip):
     
     while playerChoice != "5":
         system("clear")
-        playerChoice = input("\n\t1. Travel"+
-                             "\n\t2. Repairs"+
-                             "\n\t3. Shop"+
+        playerChoice = input("\n\t1. Encounter Card"+
+                             "\n\t2. 3 Repair Cards"+
+                             "\n\t3. 3 Shop Cards"+
                              "\n\t4. Stats"+
                              "\n\t5. Save & Exit"+
                              "\n\nThe "+str(PlayerShip.shipName[0])+"\n>>")
         if playerChoice == "1":
-            travel(PlayerShip)
+            encounter(PlayerShip)
         elif playerChoice == "2":
             repairs(PlayerShip)
         elif playerChoice == "3":
@@ -28,12 +29,8 @@ def mainLoop(PlayerShip):
 
 #differnet encouters on a random base
 #fight enemies, fight anamolies, befriend allies, gain money or powerlvl.
-def travel(PlayerShip):
-    randomRoll = random.randrange(1,4)
-    if randomRoll == 1 or randomRoll == 2:
-        print("you gone bb", str(randomRoll))
-    else:
-        enemyEncounter(PlayerShip)    
+def encounter(PlayerShip):
+    distressMain(PlayerShip)
     input()
 
 #repair shop to fix the hull, shield, or weapons.
