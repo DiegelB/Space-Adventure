@@ -30,8 +30,10 @@ class PlayerShipClass:
     def damage(self):
         return sum(self.weaponDmg) + random.randrange(1, self.rollMaximum)
     
-    def takeDamage(self, damage):
-        self.hullStr -= damage
+    def takeDamage(self, sheildDmg, hullDmg):
+        self.sheildStr -= sheildDmg
+        self.hullStr -= hullDmg
+        
     
     #nicely prints out all the stats for the player.
     def printStats(self):
